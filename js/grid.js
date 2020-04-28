@@ -1,4 +1,29 @@
-var GRID_SIZE = 4;
+const GRID_SIZE = 16; /* DEFAULT SIZE */
+const MAX = 255; /* COLOR */
+const BLACK = "0,0,0";
+const BLACK_MODE = "blackmode";
+const CRAZY_MODE = "crazymode";
+const RESET_GRID = "resetgrid";
+const btnBlackMode = document.getElementById(BLACK_MODE);
+const btnCrazyMode = document.getElementById(CRAZY_MODE);
+const btnResetGrid = document.getElementById(RESET_GRID);
+
+/* Button Events Start Below */
+btnBlackMode.addEventListener('click', function(e){
+	console.log(e + ': Black Mode Activated!');
+	hoverListener(BLACK_MODE);
+});
+
+btnCrazyMode.addEventListener('click', function(e){
+	console.log(e + ': Crazy Mode Activated!');
+	hoverListener(CRAZY_MODE);
+});
+
+btnResetGrid.addEventListener('click', function(e){
+	console.log(e + ': Reset Grid Activated!');
+	setGrid(Number(window.prompt("New size of the grid", "")));
+});
+/* Button Events End Above */
 
 function createDiv(column, row){
 	let newDiv = document.createElement("div");
@@ -20,18 +45,26 @@ function setGrid(size){
 	}
 }
 
-function randomColor(){
-
+function generateRandomColor(max){
+	let r = Math.floor(Math.random() * Math.floor(max));
+	let g = Math.floor(Math.random() * Math.floor(max));
+	let b = Math.floor(Math.random() * Math.floor(max));
+	return r + "," + g + "," + b;
 }
 
-function hoverListener() {
+function hoverListener(mode){
 	let allCells = document.querySelectorAll(".cell");
+	let color;
 	return allCells.forEach((cell) =>
-		cell.addEventListener("mouseover", function () {
-			cell.style.backgroundColor = "black";
+		cell.addEventListener("mouseover", function (e) {
+			if(mode == BLACK_MODE)
+				color = BLACK;
+			else if (mode == CRAZY_MODE)
+				color = generateRandomColor(MAX);
+			e.target.style["background-color"] = `rgb(${color})`;
 		}));
 }
 
-/* Default to 16 */
+/* Default to 16 and BLACK_MODE */
 setGrid(GRID_SIZE);
-hoverListener();
+hoverListener(BLACK_MODE);

@@ -24,7 +24,9 @@
   height: 500px;
   width: 500px;
 }
-.cell {}
+.cell {
+  background-color: white;
+}
 
 @media all and (max-width: 800px) {
   .navigation {
