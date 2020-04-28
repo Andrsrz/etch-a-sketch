@@ -22,6 +22,7 @@ btnCrazyMode.addEventListener('click', function(e){
 btnResetGrid.addEventListener('click', function(e){
 	console.log(e + ': Reset Grid Activated!');
 	setGrid(Number(window.prompt("New size of the grid", "16")));
+	hoverListener(BLACK_MODE);
 });
 /* Button Events End Above */
 
