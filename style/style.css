@@ -1,8 +1,11 @@
+body {
+  font-family: ;
+}
+
 .navigation {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
-
   list-style: none;
   margin: 0;
   background: #FC8B0A;
@@ -19,31 +22,70 @@
   background: #D87606;
 }
 
+.buttonContainer {
+  display: flex;
+  felx-flow: row wrap;
+  justify-content: center;
+}
+
+.button {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+}
+
+.block {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
 .grid {
   display: grid;
   height: 500px;
   width: 500px;
 }
+
 .cell {
   background-color: white;
 }
 
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  background: #0277FC;
+}
+
+.footer a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.footer a:hover {
+  background: #0868D6
+}
+
 @media all and (max-width: 800px) {
-  .navigation {
+  .navigation, .footer {
 	justify-content: space-around;
   }
 }
 
 @media all and (max-width: 600px) {
-  .navigation {
+  .navigation, .footer {
 	flex-flow: column wrap;
 	padding: 0;
   }
-  .navigation a {
+  .navigation a, .footer a {
 	text-align: center;
 	padding: 10px;
   }
-  .navigation li:last-of-type a {
+  .navigation li:last-of-type a, .footer li:last-of-type a {
 	border-bottom: none;
   }
 }
