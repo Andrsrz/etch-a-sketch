@@ -24,14 +24,7 @@
   height: 500px;
   width: 500px;
 }
-
-.gridchild {
-  background: green;
-}
-
-.gridchild:hover {
-  background: black;
-}
+.cell {}
 
 @media all and (max-width: 800px) {
   .navigation {

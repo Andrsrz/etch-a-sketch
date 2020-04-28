@@ -1,12 +1,9 @@
-var GRID_SIZE = 16;
-
-/* Default to 16 */
-setGrid(GRID_SIZE);
+var GRID_SIZE = 4;
 
 function createDiv(column, row){
 	let newDiv = document.createElement("div");
 	newDiv.setAttribute("id", "div" + column + "-" + row);
-	newDiv.setAttribute("class", "gridchild");
+	newDiv.setAttribute("class", "cell");
 	document.getElementById('grid').appendChild(newDiv);
 }
 
@@ -22,3 +19,19 @@ function setGrid(size){
 		}
 	}
 }
+
+function randomColor(){
+
+}
+
+function hoverListener() {
+	let allCells = document.querySelectorAll(".cell");
+	return allCells.forEach((cell) =>
+		cell.addEventListener("mouseover", function () {
+			cell.style.backgroundColor = "black";
+		}));
+}
+
+/* Default to 16 */
+setGrid(GRID_SIZE);
+hoverListener();
