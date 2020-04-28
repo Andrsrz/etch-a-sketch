@@ -3,6 +3,7 @@
 
 ## What is this?
 A simple Etch a Sketch made in JS.
+
 ![](media/test.gif)
 
 ## License
